@@ -1,0 +1,46 @@
+/* base styles */
+
+body {
+  font-family: helvetica;
+  font-size: 18px;
+}
+
+header {
+  height: 200px;
+  background-color: #666;
+}
+
+header h1 {
+  color: white;
+  text-align: center;
+  font-size: 75px;
+  padding-top: 75px;
+}
+
+section {
+  height: 200px;
+  margin-top: 50px;
+}
+
+section h2 {
+  font-size: 32px;
+  text-align: center;
+}
+
+section p {
+  font-size: 28px;
+  text-align: center;
+}
+
+.image-content {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+section div {
+  display: inline-block;
+  margin-top: 30px;
+  margin-right: 30px;
+  margin-left: 30px;
+  margin-bottom: 75px;
+}
