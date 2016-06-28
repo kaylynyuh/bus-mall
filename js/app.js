@@ -48,7 +48,7 @@ var wineGlass = new Image('wineGlass', 'imgs/wine-glass.jpg');
 //Generate the three random images to the browser
 function generateImage () {
   if(totalClicks < 25) {
-    incrementTally(this.name);
+    //incrementTally(this.name);
     var rand1 = randomImage();
     var rand2 = randomImage();
     var rand3 = randomImage();
@@ -61,10 +61,9 @@ function generateImage () {
     while (rand3 === rand1 || rand3 === rand2) {
       rand3 = randomImage();
     }
-    rand1.views++;
-    rand2.views++;
-    rand3.views++;
-
+    rand1.views += 1;
+    rand2.views += 1;
+    rand3.views += 1;
     var imageOne = document.getElementById('image-one');
     var imageTwo = document.getElementById('image-two');
     var imageThree = document.getElementById('image-three');
@@ -74,24 +73,44 @@ function generateImage () {
     imageTwo.name = rand2.name;
     imageThree.src = rand3.path;
     imageThree.name = rand3.name;
-    totalClicks++;
   }
 };
 
+function handleClick(event) {
+  console.log(event.target.name);
+  for(var i = 0; i < myImagesArray.length; i++) {
+    if (event.target.name === myImagesArray[i].name) {
+      myImagesArray[i].tally += 1;
+    }
+  }
+  totalClicks += 1;
+  //console.log(totalClicks);
+  if (totalClicks < 25) {
+    generateImage();
+  } else {
+    var imgs = document.querySelectorAll('.random-image');
+    document.removeEventListener('click', imgs);
+    document.getElementById('display-button').style.visibility = 'visible';
+  }
+}
+
 var theImages = document.getElementsByClassName('random-image');
 for (var i = 0; i < theImages.length; i++) {
-  theImages[i].addEventListener('click', generateImage);
+  theImages[i].addEventListener('click', handleClick);
 };
 
 function incrementTally(imageName){
   for(var i = 0; i < myImagesArray.length; i++) {
+    console.log(myImagesArray[i].name);
+    console.log(imageName);
     if(myImagesArray[i].name == imageName) {
-      myImagesArray[i].tally++;
+      myImagesArray[i].tally += 1;
       break;
     }
   }
 }
 
+generateImage();
 
 /*var imageSection = document.getElementById('container');
 imageSection.addEventListener('click', imageClicked());
