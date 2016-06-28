@@ -61,7 +61,6 @@ function generateImage () {
     while (rand3 === rand1 || rand3 === rand2) {
       rand3 = randomImage();
     }
-
     rand1.views++;
     rand2.views++;
     rand3.views++;
