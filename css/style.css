@@ -34,7 +34,6 @@ div {
 }
 
 section {
-  height: 200px;
   margin-top: 50px;
 }
 
@@ -58,6 +57,7 @@ section p {
   width: 1200px;
   margin: 0 auto;
   padding-left: 65px;
+  margin-bottom: -75px;
 }
 
 img {
@@ -65,7 +65,7 @@ img {
   width: 350px;
 }
 
-section div {
+.container div {
   display: inline-block;
   margin-top: 15px;
   margin-right: 15px;
@@ -85,3 +85,6 @@ section div {
   background-color: #444;
   padding: 10px 15px;
 }
+ .chart {
+   border: 2px solid black;
+ }

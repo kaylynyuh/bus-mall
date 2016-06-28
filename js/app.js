@@ -121,6 +121,11 @@ document.addEventListener('click', function() {
   }
 });
 
+var displayResults = document.getElementById('results-chart').getContext('2d');
+new Chart.Bar(chart, {
+  data: chartData
+});
+
 /*var imageSection = document.getElementById('container');
 imageSection.addEventListener('click', imageClicked());
 
