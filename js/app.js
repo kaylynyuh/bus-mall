@@ -47,24 +47,36 @@ var wineGlass = new Image('wineGlass', 'imgs/wine-glass.jpg');
 
 //Generate the three random images to the browser
 function generateImage () {
-  var rand1 = randomImage();
-  var rand2 = randomImage();
-  var rand3 = randomImage();
-  while (rand1 === rand2 || rand1 === rand3) {
-    rand1 = randomImage();
+  if(totalClicks < 25) {
+    incrementTally(this.name);
+    var rand1 = randomImage();
+    var rand2 = randomImage();
+    var rand3 = randomImage();
+    while (rand1 === rand2 || rand1 === rand3) {
+      rand1 = randomImage();
+    }
+    while (rand2 === rand1 || rand2 === rand3) {
+      rand2 = randomImage();
+    }
+    while (rand3 === rand1 || rand3 === rand2) {
+      rand3 = randomImage();
+    }
+
+    rand1.views++;
+    rand2.views++;
+    rand3.views++;
+
+    var imageOne = document.getElementById('image-one');
+    var imageTwo = document.getElementById('image-two');
+    var imageThree = document.getElementById('image-three');
+    imageOne.src = rand1.path;
+    imageOne.name = rand1.name;
+    imageTwo.src = rand2.path;
+    imageTwo.name = rand2.name;
+    imageThree.src = rand3.path;
+    imageThree.name = rand3.name;
+    totalClicks++;
   }
-  while (rand2 === rand1 || rand2 === rand3) {
-    rand2 = randomImage();
-  }
-  while (rand3 === rand1 || rand3 === rand2) {
-    rand3 = randomImage();
-  }
-  var imageOne = document.getElementById('image-one');
-  var imageTwo = document.getElementById('image-two');
-  var imageThree = document.getElementById('image-three');
-  imageOne.src = rand1.path;
-  imageTwo.src = rand2.path;
-  imageThree.src = rand3.path;
 };
 
 var theImages = document.getElementsByClassName('random-image');
@@ -72,24 +84,14 @@ for (var i = 0; i < theImages.length; i++) {
   theImages[i].addEventListener('click', generateImage);
 };
 
-
-
-/*  while (totalClicks < 25) {
-    if (event.target.id === 'imageOne') {
-      totalClicks ++;
-      console.log(totalClicks);
+function incrementTally(imageName){
+  for(var i = 0; i < myImagesArray.length; i++) {
+    if(myImagesArray[i].name == imageName) {
+      myImagesArray[i].tally++;
+      break;
     }
-    if (event.target.id === 'imageTwo') {
-      totalClicks ++;
-    }
-    if (event.target.id === 'imageThree') {
-      totalClicks++;
-    }
-  }*/
-
-
-
-
+  }
+}
 
 
 /*var imageSection = document.getElementById('container');

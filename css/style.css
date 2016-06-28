@@ -6,15 +6,31 @@ body {
 }
 
 header {
-  height: 200px;
-  background-color: #666;
+  height:350px;
+  background-image: url(../imgs/things.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 -450px;
+  /*background-position: 0 -100px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
 }
 
-header h1 {
+h1 {
   color: white;
   text-align: center;
-  font-size: 75px;
-  padding-top: 75px;
+  font-size: 80px;
+  padding: 10px;
+  font-family: 'Droid Sans', sans-serif;
+  text-shadow: 4px 4px #000;
+}
+
+div {
+  background: rgba(0, 0, 0, 0.4);
+  position: relative;
+  top: 115px;
 }
 
 section {
@@ -25,16 +41,19 @@ section {
 section h2 {
   font-size: 32px;
   text-align: center;
+  padding-top: 70px;
 }
 
 section p {
-  font-size: 28px;
+  font-size: 24px;
   text-align: center;
+  padding-top: 35px;
 }
 
 .container {
   width: 1200px;
   margin: 0 auto;
+  padding-left: 65px;
 }
 
 img {
@@ -48,4 +67,5 @@ section div {
   margin-right: 15px;
   margin-left: 15px;
   margin-bottom: 75px;
+
 }
