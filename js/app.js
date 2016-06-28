@@ -112,6 +112,15 @@ function incrementTally(imageName){
 
 generateImage();
 
+//no matter where I click it will check that total clicks is not over 25 and if it is...run this code
+document.addEventListener('click', function() {
+  if (totalClicks > 25) {
+    for(var i = 0; i < theImages.length; i++) {
+      theImages[i].removeEventListener('click', handleClick);
+    }
+  }
+});
+
 /*var imageSection = document.getElementById('container');
 imageSection.addEventListener('click', imageClicked());
 
