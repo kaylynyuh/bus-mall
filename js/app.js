@@ -121,11 +121,35 @@ document.addEventListener('click', function() {
   }
 });
 
-var displayResults = document.getElementById('results-chart').getContext('2d');
-new Chart.Bar(chart, {
-  data: chartData
-});
+function makeChart () {
+  function myImageNames () {
+    var names = [];
+    for(var i = 0; i < myImagesArray.length; i++) {
+      names.push(myImagesArray[i].name);
+    }
+    return names;
+  };
 
+  function harvestClicks () {
+    var numberOfClicks = [];
+    for(var i = 0; i < myImagesArray.length; i++) {
+      numberOfClicks.push(myImagesArray[i].tally);
+    }
+    return numberOfClicks;
+  }
+
+  var myChartData = {
+    labels: myImageNames(),
+    datasets: [{
+      data: harvestClicks(),
+    }]
+  };
+
+  var displayResults = document.getElementById('results-chart').getContext('2d');
+  new Chart.Bar(displayResults, {
+    data: myChartData
+  });
+};
 /*var imageSection = document.getElementById('container');
 imageSection.addEventListener('click', imageClicked());
 
