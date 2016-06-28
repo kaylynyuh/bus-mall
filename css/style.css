@@ -50,6 +50,10 @@ section p {
   padding-top: 35px;
 }
 
+.second-paragraph {
+  font-size: 18px;
+}
+
 .container {
   width: 1200px;
   margin: 0 auto;
