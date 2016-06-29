@@ -48,7 +48,6 @@ var wineGlass = new Image('wineGlass', 'imgs/wine-glass.jpg');
 //Generate the three random images to the browser
 function generateImage () {
   if(totalClicks < 25) {
-    //incrementTally(this.name);
     var rand1 = randomImage();
     var rand2 = randomImage();
     var rand3 = randomImage();
@@ -84,7 +83,6 @@ function handleClick(event) {
     }
   }
   totalClicks += 1;
-  //console.log(totalClicks);
   if (totalClicks < 25) {
     generateImage();
   } else {
@@ -121,12 +119,39 @@ document.addEventListener('click', function() {
   }
 });
 
-/*var imageSection = document.getElementById('container');
-imageSection.addEventListener('click', imageClicked());
+// capture display button click event and call make chart
+var displayButton = document.getElementById('display-button');
+displayButton.addEventListener('click', makeChart);
 
-function imageClicked (event) {
-  if (event.target.id === 'container') {
-    alert('Must click on a picture!');
-    imageSection.removeEventListener('click', imageClicked());
+function makeChart () {
+  function myImageNames () {
+    var names = [];
+    for(var i = 0; i < myImagesArray.length; i++) {
+      names.push(myImagesArray[i].name);
+    }
+    return names;
+  };
+
+  function harvestClicks () {
+    var numberOfClicks = [];
+    for(var i = 0; i < myImagesArray.length; i++) {
+      numberOfClicks.push(myImagesArray[i].tally);
+    }
+    return numberOfClicks;
   }
-};*/
+
+  var myChartData = {
+    labels: myImageNames(),
+    datasets: [{
+      label: 'Your Results',
+      backgroundColor: 'rgba(59, 225, 203, .5)',
+      strokeColor : '#ACC26D',
+      data: harvestClicks(),
+    }]
+  };
+
+  var displayResults = document.getElementById('results-chart').getContext('2d');
+  new Chart.Bar(displayResults, {
+    data: myChartData
+  });
+};

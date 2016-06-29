@@ -5,31 +5,34 @@
     <title>BusMall</title>
     <link rel = "stylesheet" href="css/reset.css">
     <link rel = "stylesheet" href="css/style.css">
-    <!-- <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js"></script>
   </head>
   <body>
     <header>
-      <div>
+      <div class="header">
         <h1>BusMall</h1>
       </div>
     </header>
-    <section>
+    <section style="margin-bottom:50px">
       <h2>Welcome to BusMall!</h2>
-      <p>Where you click on items that you like and we do the rest of the work for you.</p>
-      <p class="second-paragraph">Click on any item you like, but be mindful! Only 25 clicks available. Click to get started.</p>
+      <p>Where you click on items that you like and we do the rest of the work for you!</p>
+      <p class="second-paragraph">Click on any item you like, but be mindful! Only 25 clicks available. Click an image to get started.</p>
     </section>
-    <section class = "container">
+    <section class="container">
       <div>
-        <img class = "random-image" id = "image-one" src = "http://placehold.it/300x400">
+        <img class="random-image" id="image-one" src="http://placehold.it/300x400">
       </div>
       <div>
-        <img class = "random-image" id = "image-two" src = "http://placehold.it/300x400">
+        <img class="random-image" id="image-two" src="http://placehold.it/300x400">
       </div>
       <div>
-        <img class = "random-image" id = "image-three" src = "http://placehold.it/300x400">
+        <img class="random-image" id="image-three" src="http://placehold.it/300x400">
       </div>
         <button type="button" id="display-button">Display Results!</button>
     </section>
-  </body>
+    <div class="chart">
+      <canvas id="results-chart" width="1446px" height="400px"></canvas>
+    </div>
   <script src="js/app.js"></script>
+  </body>
 </html>
