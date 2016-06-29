@@ -85,3 +85,7 @@ img {
   margin-left: 475px;
   margin-bottom: 30px;
 }
+
+#results-chart {
+  display: none;
+}
