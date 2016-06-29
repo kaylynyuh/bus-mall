@@ -59,7 +59,6 @@ function generateImage () {
 };
 
 function handleClick(event) {
-  console.log(event.target.name);
   for(var i = 0; i < myImagesArray.length; i++) {
     if (event.target.name === myImagesArray[i].name) {
       myImagesArray[i].tally += 1;
@@ -82,8 +81,6 @@ for (var i = 0; i < theImages.length; i++) {
 
 function incrementTally(imageName){
   for(var i = 0; i < myImagesArray.length; i++) {
-    console.log(myImagesArray[i].name);
-    console.log(imageName);
     if(myImagesArray[i].name == imageName) {
       myImagesArray[i].tally += 1;
       break;
