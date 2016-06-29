@@ -117,7 +117,7 @@ function makeChart () {
     for(var i = 0; i < myImagesArray.length; i++) {
       numberOfClicks.push(myImagesArray[i].tally);
     }
-    localStorage.busMall = JSON.stringify(numberOfClicks);
+    localStorage.busMall = JSON.stringify(myImagesArray);
     return numberOfClicks;
   }
 
@@ -137,6 +137,13 @@ function makeChart () {
   });
 };
 
-function checkLocalStorage () {
-  if()
+function checkLocalStorage() {
+  if(localStorage.busMall) {
+    console.log('local storage exists');
+    myImagesArray = JSON.parse(localStorage.busMall);
+  } else {
+    console.log('local storage empty');
+  }
 }
+
+checkLocalStorage();
