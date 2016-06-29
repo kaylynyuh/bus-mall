@@ -64,6 +64,7 @@ function handleClick(event) {
       myImagesArray[i].tally += 1;
     }
   }
+  //localStorage.busMall = JSON.stringify(harvestClicks());
   totalClicks += 1;
   if (totalClicks < 25) {
     generateImage();
@@ -116,6 +117,7 @@ function makeChart () {
     for(var i = 0; i < myImagesArray.length; i++) {
       numberOfClicks.push(myImagesArray[i].tally);
     }
+    localStorage.busMall = JSON.stringify(numberOfClicks);
     return numberOfClicks;
   }
 
@@ -134,3 +136,7 @@ function makeChart () {
     data: myChartData
   });
 };
+
+function checkLocalStorage () {
+  if()
+}
