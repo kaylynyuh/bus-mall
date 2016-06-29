@@ -9,6 +9,8 @@ var totalClicks = 0;
 //An array to store images from constructor
 var myImagesArray = [];
 
+var imageNames = ['bag.jpg','banana.jpg','bathroom.jpg','boots.jpg','breakfast.jpg','bubblegum.jpg','chair.jpg','cthulhu.jpg','dog-duck.jpg','dragon.jpg','pen.jpg','pet-sweep.jpg','scissors.jpg','shark.jpg','sweep.png','tauntaun.jpg','unicorn.jpg','usb.gif','water-can.jpg','wine-glass.jpg'];
+
 //Generate exactly 3 random pictures for generateThreeImages function
 function randomImage() {
   var a = generateMathRand();
@@ -16,36 +18,17 @@ function randomImage() {
 }
 
 //Constructor object with name and path parameters for images
-function Image(name, path) {
-  this.name = name;
-  this.path = path;
+function Image(name) {
+  this.name = name.split('.')[0];
+  this.path = 'imgs/' + name;
   this.tally = 0;
   this.views = 0;
-  myImagesArray.push(this);
 }
 
-var bag = new Image('bag', 'imgs/bag.jpg');
-var banana = new Image('banana', 'imgs/banana.jpg');
-var bathroom = new Image('bathroom', 'imgs/bathroom.jpg');
-var boots = new Image('boot', 'imgs/boots.jpg');
-var breakfast = new Image('breakfast', 'imgs/breakfast.jpg');
-var bubblegum = new Image('bubblegum', 'imgs/bubblegum.jpg');
-var chair = new Image('chair', 'imgs/chair.jpg');
-var cthulhu = new Image('cthulhu', 'imgs/cthulhu.jpg');
-var dogDuck = new Image('dogDuck', 'imgs/dog-duck.jpg');
-var dragon = new Image('dragon', 'imgs/dragon.jpg');
-var pen = new Image('pen', 'imgs/pen.jpg');
-var petSweep = new Image('petSweep', 'imgs/pet-sweep.jpg');
-var scissors = new Image('scissors', 'imgs/scissors.jpg');
-var shark = new Image('shark', 'imgs/shark.jpg');
-var sweep = new Image('sweep', 'imgs/sweep.png');
-var tauntaun = new Image('tauntaun', 'imgs/tauntaun.jpg');
-var unicorn = new Image('unicorn', 'imgs/unicorn.jpg');
-var usb = new Image('usb', 'imgs/usb.gif');
-var waterCan = new Image('waterCan', 'imgs/water-can.jpg');
-var wineGlass = new Image('wineGlass', 'imgs/wine-glass.jpg');
+for(var i = 0; i < imageNames.length; i++) {
+  myImagesArray.push(new Image(imageNames[i]));
+}
 
-//Generate the three random images to the browser
 function generateImage () {
   if(totalClicks < 25) {
     var rand1 = randomImage();
