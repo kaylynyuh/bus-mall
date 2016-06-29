@@ -79,11 +79,17 @@ img {
   font-size: 24px;
   border-radius: 8px;
   border: none;
-  color: white;
+  color: #e3e3e3;
   background-color: #444;
   padding: 10px 15px;
   margin-left: 475px;
   margin-bottom: 30px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #888;
+  color:#222;
 }
 
 #results-chart {
